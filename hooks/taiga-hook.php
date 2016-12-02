@@ -30,8 +30,7 @@ if (isset($_GET[PARAM_IDENTIFICATION])) {
     $bot->getTaigaSecretKeyFromDatabase();
 
     // get the taiga signature
-    $headers = getallheaders();
-    $signature = $headers["X-Taiga-Webhook-Signature"];
+    $signature = $_SERVER['HTTP_X_TAIGA_WEBHOOK_SIGNATURE'];
 
     // read post data
     $requestContent = file_get_contents("php://input");
